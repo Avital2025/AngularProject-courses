@@ -1,0 +1,64 @@
+/* עיצוב כללי של הטופס */
+form {
+    max-width: 450px;
+    margin: 40px auto;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* שדות טופס - מראה מסודר */
+  mat-form-field {
+    width: 100%;
+  }
+  
+  /* מרווח מסביב לכל שדה */
+  .full-width {
+    margin-bottom: 12px;
+  }
+  
+  /* עיצוב הכפתור */
+  button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    text-transform: uppercase;
+    background-color: #00796b;
+    color: #00796b;
+    
+  }
+  
+  /* כאשר הכפתור לחיץ */
+  button:hover {
+    background-color: #00796b;
+  }
+  
+  /* הודעות שגיאה */
+  mat-error {
+    font-size: 14px;
+    color: #d32f2f;
+    font-weight: bold;
+  }
+  
+  /* עיצוב לתיבת הבחירה */
+  select {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: white;
+    font-size: 16px;
+  }
+  
+  /* עיצוב לכפתור כאשר הוא מנוטרל */
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  

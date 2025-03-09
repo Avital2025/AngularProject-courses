@@ -1,0 +1,24 @@
+
+<div mat-dialog-content>
+  <button mat-icon-button (click)="goBacklessons()">
+    <mat-icon>undo</mat-icon>
+</button>
+
+    <form [formGroup]="addLessonForm" (ngSubmit)="onSubmit()" class="add-lesson-form">
+      <div  formGroupName="lessonGroup">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>כותרת</mat-label>
+        <input matInput formControlName="title" required>
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>תוכן</mat-label>
+        <textarea matInput formControlName="content" required></textarea>
+      </mat-form-field>
+  </div>
+      <div mat-dialog-actions>
+        <button mat-button color="primary" type="submit">הוסף שיעור</button>
+      
+  </div>
+    </form>
+  </div>

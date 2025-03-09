@@ -1,0 +1,27 @@
+<!-- <div class="button-container">
+  <h1>welcome</h1>
+  <p>login or sign up in order to continue</p>
+    <button mat-raised-button color="primary" (click)="openLoginDialog()">
+      <mat-icon>login</mat-icon> Login
+    </button>
+  
+    <button mat-raised-button color="accent" (click)="openRegisterDialog()">
+      <mat-icon>person_add</mat-icon> Sign Up
+    </button>
+  </div> -->
+
+  <div class="button-container">
+    <h1 class="welcome-title">Welcome</h1>
+    <p class="subtitle">Login or sign up in order to continue</p>
+    
+    <div class="button-group">
+      <button mat-raised-button (click)="openLoginDialog()" class="login-button">
+        <mat-icon>login</mat-icon> Login
+      </button>
+    
+      <button mat-raised-button (click)="openRegisterDialog()" class="signup-button">
+        <mat-icon>person_add</mat-icon> Sign Up
+      </button>
+    </div>
+  </div>
+  

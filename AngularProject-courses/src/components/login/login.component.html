@@ -1,0 +1,35 @@
+<form [formGroup]="addUserForm" (ngSubmit)="onSubmit()" class="login-form mat-elevation-z4">
+    <div formGroupName="userGroup">
+      
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput id="email" formControlName="email" type="email" required>
+        <mat-icon matSuffix>email</mat-icon>
+        
+        @if (addUserForm.get('userGroup.email')?.invalid && addUserForm.get('userGroup.email')?.touched) {
+          <mat-error>כתובת אימייל לא תקינה</mat-error>
+        }
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput id="password" formControlName="password" type="password" required>
+        <mat-icon matSuffix>lock</mat-icon>
+        
+        @if (addUserForm.get('userGroup.password')?.invalid && addUserForm.get('userGroup.password')?.touched) {
+          <mat-error>הסיסמה נדרשת</mat-error>
+        }
+      </mat-form-field>
+  
+    </div>
+  
+    <button mat-raised-button color="primary" type="submit" [disabled]="addUserForm.invalid">
+      Login
+    </button>
+  </form>
+  
+  <app-errors
+    [errorMessage]="errormessage" 
+    [showError]="showError" 
+    (errorClosed)="onErrorClosed()">
+  </app-errors>

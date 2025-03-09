@@ -1,0 +1,44 @@
+
+
+<div class="course-container">
+  <button mat-icon-button (click)="goBack()">
+    <mat-icon>undo</mat-icon>
+</button>
+  <mat-card class="course-card">
+    <h1>{{ course.title }}</h1>
+    <h2>{{ course.description }}</h2>
+
+    <h1>Lessons:</h1>
+  
+
+    <div class="lessons-grid">
+      @for (lesson of lessons; track lesson.id) {
+        <mat-card class="lesson-card">
+          <mat-card-header>
+            <mat-card-title>{{ lesson.title }}</mat-card-title>
+            <span class="lesson-actions">
+             @if(role=='teacher'){
+              <button mat-icon-button (click)="editLesson(lesson)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <!-- כפתור מחיקה -->
+              <button mat-icon-button color="warn" (click)="deleteLesson(lesson.id)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            }
+            </span>
+          </mat-card-header>
+          <mat-card-content>
+            <p>{{ lesson.content }}</p>
+          </mat-card-content>
+        </mat-card>
+      }
+
+     @if(role=='teacher'){
+      <button mat-raised-button class="add-lesson-btn" [routerLink]="['/lessons','add-lesson',courseId]" routerLinkActive="button-active">
+        <mat-icon>add</mat-icon> הוסף שיעור
+      </button>
+    }
+    </div>
+  </mat-card>
+</div>

@@ -1,0 +1,54 @@
+.add-course-form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff; /* שינוי צבע הרקע לצבע בהיר */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* הוספת צללים עדינים */
+    border: 1px solid #00796b; /* הוספת גבול עם צבע טורקיז כהה */
+}
+
+.add-course-form h2 {
+    font-size: 1.5rem;
+    color: #00796b; /* טורקיז כהה לכותרת */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.add-course-form label {
+    font-size: 1rem;
+    color: #00796b; /* טורקיז כהה */
+    margin-bottom: 8px;
+    display: block;
+}
+
+.add-course-form input,
+.add-course-form select,
+.add-course-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #00796b; /* גבול טורקיז כהה */
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.add-course-form input[type="submit"],
+.add-course-form button {
+    background-color: #00796b; /* צבע רקע טורקיז כהה */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.add-course-form input[type="submit"]:hover,
+.add-course-form button:hover {
+    background-color: #004d40; /* צבע טורקיז כהה יותר בהעברה */
+}

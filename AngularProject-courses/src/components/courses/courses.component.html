@@ -1,0 +1,51 @@
+
+<div class="container">
+  <h2>רשימת הקורסים</h2>
+  @if(role=='teacher'){
+  <button class="add-course-button" [routerLink]="'/add-course'">הוספת קורס</button>
+  }
+  <div class="courses-grid">
+    @for (course of courses; track course.teacherId) {
+    <mat-card class="course-card" appDCourse>
+      <mat-card-header>
+        <mat-card-title>{{ course.title }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ course.description }}</p>
+      </mat-card-content>
+      <div class="button-container">
+        <button [routerLink]="['/courses', course.id]" routerLinkActive="button-active" class="custom-button">
+          צפה בקורס
+        </button>
+
+    
+        @if(role == 'student') {
+          <div class="top-right-buttons">
+            @if (!isEnrolled(course)) {
+              <button class="icon-button" (click)="enrollInCourse(course)">
+                <mat-icon>person_add</mat-icon>
+                <span class="button-text-small">Enroll</span> 
+              </button>
+            } @else {
+              <button class="icon-button" (click)="unenrollFromCourse(course)">
+                <mat-icon>exit_to_app</mat-icon>
+                <span class="button-text-small">Unenroll</span>
+              </button>
+            }
+          </div>
+        }
+       
+        @if(role=='teacher') {
+        <button class="icon-button" (click)="editCourse(course)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button class="icon-button" (click)="deleteCourse(course.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+        }
+      </div>
+    </mat-card>
+    }
+  </div>
+  <router-outlet></router-outlet>
+</div>

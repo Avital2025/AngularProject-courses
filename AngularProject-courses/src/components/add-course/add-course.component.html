@@ -1,0 +1,28 @@
+<button mat-icon-button (click)="goBack()">
+    <mat-icon>undo</mat-icon>
+</button>
+<form [formGroup]="addCourseForm" (ngSubmit)="onSubmit()" class="add-course-form mat-elevation-z4">
+    <div formGroupName="courseGroup">
+      
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Title</mat-label>
+        <input matInput id="title" formControlName="title" type="text" required>
+        @if (addCourseForm.get('courseGroup.title')?.invalid && addCourseForm.get('courseGroup.title')?.touched) {
+          <mat-error>Title is required</mat-error>
+        }
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Description</mat-label>
+        <input matInput id="description" formControlName="description" type="text" required>
+        @if (addCourseForm.get('courseGroup.description')?.invalid && addCourseForm.get('courseGroup.description')?.touched) {
+          <mat-error>Description is required</mat-error>
+        }
+      </mat-form-field>
+  
+    </div>
+  
+    <button mat-raised-button color="accent" type="submit" [disabled]="addCourseForm.invalid" routerLinkActive="buttonactive">
+      <mat-icon>add_circle</mat-icon> Add Course
+    </button>
+  </form>

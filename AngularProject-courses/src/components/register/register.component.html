@@ -1,0 +1,54 @@
+<form [formGroup]="addUserForm" (ngSubmit)="onSubmit()">
+    <div formGroupName="userGroup">
+      
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" id="name" formControlName="name">
+        @if(addUserForm.get('userGroup.name')?.hasError('required')) {
+          <mat-error>Name is required</mat-error>
+        }
+      </mat-form-field>
+      
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Role</mat-label>
+        <select matNativeControl formControlName="role">
+          <option value="" disabled selected>Select a role</option>
+          @for(rol of roles; track rol) {
+            <option [value]="rol">{{ rol }}</option>
+          }
+        </select>
+        @if(addUserForm.get('userGroup.role')?.hasError('required')) {
+          <mat-error>Role is required</mat-error>
+        }
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" id="email" formControlName="email">
+        @if(addUserForm.get('userGroup.email')?.hasError('required')) {
+          <mat-error>Email is required</mat-error>
+        }
+        @if(addUserForm.get('userGroup.email')?.hasError('email')) {
+          <mat-error>Please enter a valid email</mat-error>
+        }
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" id="password" formControlName="password">
+        @if(addUserForm.get('userGroup.password')?.hasError('required')) {
+          <mat-error>Password is required</mat-error>
+        }
+      </mat-form-field>
+    </div>
+  
+    <button mat-raised-button color="primary" type="submit" >
+      Submit
+    </button>
+  </form>
+
+  <app-errors
+  [errorMessage]="errormessage" 
+  [showError]="showError" 
+  (errorClosed)="onErrorClosed()">
+</app-errors>
