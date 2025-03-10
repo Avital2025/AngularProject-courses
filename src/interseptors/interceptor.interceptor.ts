@@ -1,15 +1,17 @@
 import { HttpInterceptorFn } from '@angular/common/http';
 
-export const interceptorInterceptor: HttpInterceptorFn = (req, next) => {
+export const interceptor: HttpInterceptorFn = (req, next) => {
   const token = sessionStorage.getItem('token');
 
-  // יצירת Headers חדשים עם ה-Token
-  let headers = req.headers;
   if (token) {
-    headers = headers.set('Authorization', `Bearer ${token}`);
+    const clonedRequest = req.clone({
+      setHeaders: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+    return next(clonedRequest);
   }
-  
-  const clonedReq = req.clone({ headers });
 
-  return next(clonedReq);
+  return next(req);
 };
+

@@ -13,8 +13,8 @@ export class LessonsService {
 
 
   // Get all lessons by course ID
-  getLessonsByCourseId(courseId: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/${courseId}/lessons`);
+  getLessonsByCourseId(courseId: string): Observable<any> { 
+    return this.http.get<lesson[]>(`${this.apiUrl}/${courseId}/lessons`);
   }
  
 

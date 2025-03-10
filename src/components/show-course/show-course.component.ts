@@ -38,8 +38,8 @@ export class ShowCourseComponent implements OnInit {
   this.activatedRoute.paramMap.subscribe(params => {
     this.courseId = params.get('id') || '';       
     if (this.courseId) {
-      this.getCourseDetails(); 
-      this.getLessons();
+      this.getCourseDetails()
+       this.getLessons();
     }    
   });
 }
@@ -47,9 +47,10 @@ export class ShowCourseComponent implements OnInit {
 
 getLessons(): void {
 
+
   this.lessonService.getLessonsByCourseId(this.courseId).subscribe({
+
     next: (data) => {
-      
       this.lessons = data;
     },
     error: (error) => {
@@ -57,18 +58,22 @@ getLessons(): void {
       
     }
   });
+ 
+  
 }
 
 getCourseDetails(): void {
   
   this.coursesService.getCourseById(this.courseId).subscribe({
     next: (data) => {
+      
       this.course = data;
     },
     error: (error) => {
       console.error('Error fetching course:', error);
     }
   });
+
 }
 
 deleteLesson(id:number){
